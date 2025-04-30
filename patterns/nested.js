@@ -16,7 +16,7 @@ export function makeBoard(rows, cols) {
     for (let j = 0; j < cols; j++) {
       row.push("-");
     }
-    board.push(row);
+    board.push(row); 
   }
   return board;
 }
@@ -35,8 +35,29 @@ export function makeBoard(rows, cols) {
  * @returns `null` if `size` is not a number
  * @returns `[]` if `size` is 0 or negative
  */
-export function makeTriangle(size) {
-  // TODO
+
+export function makeTriangle(rows) {
+  if (typeof rows !== "number") {
+    return null;
+  }
+
+  if (rows <= 0) {
+    return [];
+  }
+
+  const triangle = [];
+
+  for (let i = 1; i <= rows; i++) {
+    const row = [];
+
+    for (let j = 0; j < i; j++) {
+      row.push("-");
+    }
+
+    triangle.push(row);
+  }
+
+  return triangle;
 }
 
 /**
@@ -45,6 +66,23 @@ export function makeTriangle(size) {
  * @returns {number}  the number of times `letter` appears in all the words
  * @returns `0` if `letter is not a string
  */
+ 
 export function countLetter(words, letter) {
-  // TODO
+  if (typeof letter !== "string") return 0;
+  if (!Array.isArray(words) || words.length === 0) return 0;
+
+  let count = 0;
+  const target = letter.toLowerCase();
+
+  for (const word of words) {
+    if (typeof word === "string") {
+      for (const char of word.toLowerCase()) {
+        if (char === target) {
+          count++;
+        }
+      }
+    }
+  }
+
+  return count;
 }

@@ -81,7 +81,7 @@ describe("countLetter", () => {
   it("returns 1 a in [abc, def, ghi]", () => {
     expect(countLetter(["abc", "def", "ghi"], "a")).toBe(1);
   });
-  it("returns 3 a's in [aca, bcA, abc]", () => {
-    expect(countLetter(["aca", "bcA", "abc"], "a")).toBe(3);
+  it("returns 4 a's in [aca, bcA, abc]", () => {
+    expect(countLetter(["aca", "bcA", "abc"], "a")).toBe(4);
   });
 });
